@@ -2,14 +2,14 @@
 
 # Source environment variables and helper functions
 source ./config/config.env
-source ./scripts/functions.sh
+source ./modules/functions.sh
 
 # Path to the submissions file
-submissions_file="./data/submissions.txt"
+submissions_file="./assets/submissions.txt"
 
 # Print remaining time and run the reminder function
-echo "Assignment: "
-echo "Days remaining to submit:  days"
+echo "Assignment: $ASSIGNMENT"
+echo "Days remaining to submit: $DAYS_REMAINING days"
 echo "--------------------------------------------"
 
-check_submissions 
+check_submissions $submissions_file
