@@ -25,10 +25,10 @@ cat <<EOL > "$main_repo/scripts/reminder.sh"
 
 # Source environment variables and helper functions
 source ./config/config.env
-source ./modules/functions.sh
+source ./scripts/functions.sh
 
 # Path to the submissions file
-submissions_file="./assets/submissions.txt"
+submissions_file="./data/submissions.txt"
 
 # Print remaining time and run the reminder function
 echo "Assignment: $ASSIGNMENT"
@@ -84,3 +84,5 @@ cat <<EOL > "$main_repo/scripts/startup.sh"
 EOL
 
 # So far we are good
+# Adding execution command to all created scripts
+chmod +x "$main_repo/scripts/reminder.sh" "$main_repo/scripts/functions.sh" "$main_repo/scripts/startup.sh"
