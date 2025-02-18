@@ -61,3 +61,26 @@ function check_submissions {
     done < <(tail -n +2 "$submissions_file") # Skip the header
 }
 EOL
+
+#Adding data via submission text file
+cat <<EOL > "$main_repo/data/submissions.txt"
+student, assignment, submission status
+Chinemerem, Shell Navigation, not submitted
+Chiagoziem, Git, submitted
+Divine, Shell Navigation, not submitted
+Anissah, Shell Basics, submitted
+Albert, Shell process and signals, not submitted
+Diana, Git, not submitted
+Travis, Shell Navigation, submitted
+Nadia, Shell Basics, not submitted
+Uche, Git, not submitted
+Tella, Shell Navigation, not submitted
+EOL
+
+#let's also add startup but we are still crafting logic via awk or any other way
+cat <<EOL > "$main_repo/scripts/startup.sh"
+#!/usr/bin/env bash
+# Logic will go down below
+EOL
+
+# So far we are good
