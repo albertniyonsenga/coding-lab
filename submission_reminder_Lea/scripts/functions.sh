@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 # Function to read submissions file and output students who have not submitted
-function check_submissions {
 
+check_submissions (){
     local submissions_file=$1
     echo "Checking submissions in $submissions_file"
 
