@@ -13,37 +13,40 @@ mkdir -p "$main_repo/config" "$main_repo/scripts" "$main_repo/data"
 
 # After learning more about `EOL`,i believe we can achive excellent 
 # Let's start with config.env using available codes given 
-cat <<EOL > "$main_repo/config/config.env"
+cat << 'EOF' > "$main_repo/config/config.env"
 # This is the config file content
 ASSIGNMENT="Shell Navigation"
 DAYS_REMAINING=2
-EOL
+EOF
 
 #Adding the scripts basing on the given template
-cat <<EOL > "$main_repo/scripts/reminder.sh"
+cat << 'EOF' > "$main_repo/scripts/reminder.sh"
 #!/usr/bin/env bash
 
 # Source environment variables and helper functions
-source ./config/config.env
-source ./scripts/functions.sh
+source ../config/config.env
+source ./functions.sh
 
 # Path to the submissions file
-submissions_file="./data/submissions.txt"
+submissions_file="../data/submissions.txt"
 
 # Print remaining time and run the reminder function
-echo "Assignment: $ASSIGNMENT"
-echo "Days remaining to submit: $DAYS_REMAINING days"
-echo "--------------------------------------------"
+reminder(){
+        echo "Assignment: $ASSIGNMENT"
+        echo "Days remaining to submit: $DAYS_REMAINING days"
+        echo "--------------------------------------------"
 
-check_submissions $submissions_file
-EOL
+        check_submissions $submissions_file
+}
+EOF
 
 # Time for function sasa
-cat <<EOL > "$main_repo/scripts/functions.sh"
+cat << 'EOF' > "$main_repo/scripts/functions.sh"
 #!/usr/bin/env bash
 
 # Function to read submissions file and output students who have not submitted
-function check_submissions {
+
+check_submissions (){
     local submissions_file=$1
     echo "Checking submissions in $submissions_file"
 
@@ -60,10 +63,10 @@ function check_submissions {
         fi
     done < <(tail -n +2 "$submissions_file") # Skip the header
 }
-EOL
+EOF
 
 #Adding data via submission text file
-cat <<EOL > "$main_repo/data/submissions.txt"
+cat << 'EOF' > "$main_repo/data/submissions.txt"
 student, assignment, submission status
 Chinemerem, Shell Navigation, not submitted
 Chiagoziem, Git, submitted
@@ -75,13 +78,25 @@ Travis, Shell Navigation, submitted
 Nadia, Shell Basics, not submitted
 Uche, Git, not submitted
 Tella, Shell Navigation, not submitted
-EOL
+EOF
 
 #let's also add startup but we are still crafting logic via awk or any other way
-cat <<EOL > "$main_repo/scripts/startup.sh"
+cat << 'EOF' > "$main_repo/scripts/startup.sh"
 #!/usr/bin/env bash
 # Logic will go down below
-EOL
+echo "Starting the Submission Reminder app..."
+
+source ../config/config.env
+source ./reminder.sh
+
+./reminder.sh
+
+main(){
+     reminder
+     echo "We are done!"
+}
+main
+EOF
 
 # So far we are good
 # Adding execution command to all created scripts
