@@ -8,8 +8,8 @@ source ./scripts/functions.sh
 submissions_file="./data/submissions.txt"
 
 # Print remaining time and run the reminder function
-echo "Assignment: "
-echo "Days remaining to submit:  days"
+echo "Assignment: $ASSIGNMENT"
+echo "Days remaining to submit: $DAYS_REMAINING days"
 echo "--------------------------------------------"
 
-check_submissions 
+check_submissions $submissions_file
