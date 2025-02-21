@@ -60,7 +60,7 @@ Wanna join the drill, hum? Let's go:
 #Use the commands below to create our  environment
 ./create_environment.sh
 ```
-After that, we will be asked for our name so that the application directory will look like `submission_reminder_yourname. ' After doing that, we will get confirmation that our environment is set to boom.
+After that, we will be asked for our name so that the application directory will look like `submission_reminder_yourname`. After doing that, we will get confirmation that our environment is set to boom.
 
 2. To keep on track, we will go to your submission_reminder_yourname directory to run the whole application easily. Here, we run `startup.sh`and, and then we are done. down below, we have commands to use.
 ```
@@ -70,6 +70,6 @@ cd submission_reminder_yourname
 # Execute the startup file
 ./startup
 ```
-Finally, we can get who didn't submit and which assignments they didn't submit, cheers to our **Submission Reminder App**.
+Finally, we can get who didn't submit and which assignments they didn't submit; cheers to our **Submission Reminder App**.
 
 ### Thanks for your time 🤝
