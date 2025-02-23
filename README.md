@@ -68,7 +68,7 @@ After that, we will be asked for our name so that the application directory will
 cd submission_reminder_yourname
 
 # Execute the startup file
-./startup
+./startup.sh
 ```
 Finally, we can get who didn't submit and which assignments they didn't submit, cheers to our **Submission Reminder App**.
 
